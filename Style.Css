@@ -9,6 +9,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: white;
+    line-height: 1.6;
     text-align: center;
     min-height: 100vh;
     background: linear-gradient(270deg, #ff6a00, #ee0979, #00c9ff, #92fe9d);
@@ -52,7 +53,7 @@ nav a:hover {
     border-radius: 8px;
 }
 
-/* Hero Title Animation */
+/* Hero Title (Home only) */
 .hero-title {
     font-size: 3rem;
     margin-top: 60px;
@@ -68,7 +69,7 @@ nav a:hover {
     }
 }
 
-/* Cube Section */
+/* Cube Section (Home page only) */
 .cube-section {
     display: flex;
     flex-direction: column;
@@ -136,6 +137,32 @@ nav a:hover {
     to {
         transform: rotateX(360deg) rotateY(360deg);
     }
+}
+
+/* Page Container (About/Services/Contact) */
+.page-container {
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: left;
+}
+
+.page-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.page-container p,
+.page-container li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.page-container ul {
+    list-style: disc;
+    padding-left: 20px;
 }
 
 /* Footer */
