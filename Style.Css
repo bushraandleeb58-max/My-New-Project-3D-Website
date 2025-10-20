@@ -1,39 +1,109 @@
-/* 🌐 3D Scene Setup */
-.hero {
-    perspective: 1000px;
-    /* 👈 3D depth create karta hai */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 70vh;
-    text-align: center;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* 🧊 3D Rotating Box */
+/* Body & Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(270deg, #ff6a00, #ee0979, #00c9ff, #92fe9d);
+    background-size: 800% 800%;
+    animation: bgAnimation 15s ease infinite;
+}
+
+/* Background Animation */
+@keyframes bgAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+/* Hero Title Animation */
+.hero-title {
+    font-size: 3rem;
+    margin-top: 60px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cube Section */
+.cube-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+/* Cube */
 .cube {
     width: 150px;
     height: 150px;
     position: relative;
+    margin: 50px auto;
     transform-style: preserve-3d;
-    animation: rotateCube 8s infinite linear;
+    animation: rotateCube 10s infinite linear;
+    transition: transform 0.8s;
 }
 
-.cube div {
+.cube:hover {
+    transform: rotateX(45deg) rotateY(45deg) scale(1.1);
+}
+
+.face {
     position: absolute;
     width: 150px;
     height: 150px;
-    background: #4b6cb7;
-    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
     font-weight: bold;
-    border: 2px solid white;
 }
 
-/* Cube faces */
 .front {
     transform: translateZ(75px);
 }
@@ -58,7 +128,6 @@
     transform: rotateX(-90deg) translateZ(75px);
 }
 
-/* Cube rotation animation */
 @keyframes rotateCube {
     from {
         transform: rotateX(0) rotateY(0);
@@ -69,20 +138,8 @@
     }
 }
 
-/* ✨ Navigation hover 3D flip effect */
-nav a {
-    display: inline-block;
-    padding: 8px 16px;
-    margin: 0 5px;
-    color: white;
-    background: #4b6cb7;
-    text-decoration: none;
-    transform-style: preserve-3d;
-    transition: transform 0.4s;
-    border-radius: 6px;
-}
-
-nav a:hover {
-    transform: rotateX(15deg) rotateY(15deg) scale(1.05);
-    background: #182848;
+/* Footer */
+footer {
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.2);
 }
