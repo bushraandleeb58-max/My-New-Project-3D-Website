@@ -1,0 +1,88 @@
+/* 🌐 3D Scene Setup */
+.hero {
+    perspective: 1000px;
+    /* 👈 3D depth create karta hai */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 70vh;
+    text-align: center;
+}
+
+/* 🧊 3D Rotating Box */
+.cube {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 8s infinite linear;
+}
+
+.cube div {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #4b6cb7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+/* Cube faces */
+.front {
+    transform: translateZ(75px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(75px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(75px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(75px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(75px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(75px);
+}
+
+/* Cube rotation animation */
+@keyframes rotateCube {
+    from {
+        transform: rotateX(0) rotateY(0);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* ✨ Navigation hover 3D flip effect */
+nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    color: white;
+    background: #4b6cb7;
+    text-decoration: none;
+    transform-style: preserve-3d;
+    transition: transform 0.4s;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    transform: rotateX(15deg) rotateY(15deg) scale(1.05);
+    background: #182848;
+}
